@@ -1,0 +1,59 @@
+<section class="bg-light p-4 rounded my-3 w-75 m-auto">
+  <h1>Login Now</h1>
+
+  <form [formGroup]="loginForm"  (ngSubmit)="handelForm()">
+   
+    <div class="mb-2">
+      <label for="email"> email: </label>
+      <input
+        formControlName="email"
+        type="email"
+        id="email"
+        class="form-control"
+      />
+
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          loginForm.get('email')?.errors && loginForm.get('email')?.touched
+        "
+      >
+        <p *ngIf="loginForm.get('email')?.getError('required')">
+          email is required
+        </p>
+        <p *ngIf="loginForm.get('email')?.getError('email')">email invalid</p>
+      </div>
+    </div>
+
+    <div class="mb-2">
+      <label for="password"> password: </label>
+      <input
+        formControlName="password"
+        type="password"
+        id="password"
+        class="form-control"
+      />
+
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          loginForm.get('password')?.errors &&
+          loginForm.get('password')?.touched
+        "
+      >
+        <p *ngIf="loginForm.get('password')?.getError('required')">
+          password is required
+        </p>
+        <p *ngIf="loginForm.get('password')?.getError('pattern')">
+          password invalid
+        </p>
+      </div>
+    </div>
+
+    <button [disabled]="loginForm.invalid" class="btn btn-info ms-auto d-block">
+        <i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>
+      Login
+    </button>
+    <p *ngIf="messageError" class="alert alert-danger"> {{messageError}} </p>
+  </form>
+</section>
