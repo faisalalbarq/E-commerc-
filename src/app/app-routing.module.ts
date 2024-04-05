@@ -14,6 +14,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {
+    // حطينا الباث فاضي عشان لو اليوزر كتب لوق ان بدون مايكتب اسم النافبار
+    
     path: '', component: BlankLayoutComponent, children: [
       { path: '', redirectTo: "home", pathMatch: 'full' },
       { path: "home", component: HomeComponent },

@@ -31,6 +31,10 @@ export class LoginComponent {
         next: (response) => {
           if (response.message == 'success') {
             this.isLoading = false;
+
+            localStorage.setItem('Token' , response.token)
+            this._AuthService.decodeToken();
+
             this._Router.navigate(['/home'])
           }
         },
