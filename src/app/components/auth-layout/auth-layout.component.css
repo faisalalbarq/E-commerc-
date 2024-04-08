@@ -2,5 +2,6 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    /* justify content = y and align items = x because flex direction = column */
     justify-content: space-between;
 }

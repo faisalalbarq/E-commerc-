@@ -11,7 +11,7 @@ import { BrandsComponent } from './components/brands/brands.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { authGuard } from './shared/guards/auth.guard';
+import { authGuard } from './core/shared/guards/auth.guard';
 
 const routes: Routes = [
   {
