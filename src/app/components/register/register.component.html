@@ -5,10 +5,11 @@
     بامكاني احط بروبرتي بالبوتن تبع الفورم واكتب فيها كليك واعطيه فنكشن 
     بس المشكله انه مش احسن اشي عشان يمكن يسبميت الفورم بالانتر فبروح على تاج الفورم وبكتب كالاتي -->
 
-  <form [formGroup]="registerForm" (ngSubmit)="handelForm()"> 
+  <form [formGroup]="registerForm" (ngSubmit)="handelForm()">
     <div class="mb-2">
       <label for="name">name: </label>
       <input
+        #inputName
         formControlName="name"
         type="text"
         id="name"
@@ -18,7 +19,8 @@
       <div
         class="alert alert-danger"
         *ngIf="
-          registerForm.get('name')?.errors && registerForm.get('name')?.touched
+          registerForm.get('name')?.errors &&
+          (registerForm.get('name')?.touched || inputName.value.length > 0)
         "
       >
         <p *ngIf="registerForm.get('name')?.getError('required')">
@@ -33,10 +35,10 @@
       </div>
     </div>
 
-    
     <div class="mb-2">
       <label for="email">email: </label>
       <input
+        #inputEmail
         formControlName="email"
         type="email"
         id="email"
@@ -47,7 +49,7 @@
         class="alert alert-danger"
         *ngIf="
           registerForm.get('email')?.errors &&
-          registerForm.get('email')?.touched
+          (registerForm.get('email')?.touched || inputEmail.value.length > 0)
         "
       >
         <p *ngIf="registerForm.get('email')?.getError('required')">
@@ -62,6 +64,7 @@
     <div class="mb-2">
       <label for="password">password: </label>
       <input
+        #inputPassword
         formControlName="password"
         type="password"
         id="password"
@@ -72,7 +75,8 @@
         class="alert alert-danger"
         *ngIf="
           registerForm.get('password')?.errors &&
-          registerForm.get('password')?.touched
+          (registerForm.get('password')?.touched ||
+            inputPassword.value.length > 0)
         "
       >
         <p *ngIf="registerForm.get('password')?.getError('required')">
@@ -87,6 +91,7 @@
     <div class="mb-2">
       <label for="rePassword">rePassword: </label>
       <input
+        #inputRePassword
         formControlName="rePassword"
         type="password"
         id="rePassword"
@@ -97,7 +102,8 @@
         class="alert alert-danger"
         *ngIf="
           registerForm.get('rePassword')?.errors &&
-          registerForm.get('rePassword')?.touched
+          (registerForm.get('rePassword')?.touched ||
+            inputRePassword.value.length > 0)
         "
       >
         <p *ngIf="registerForm.get('rePassword')?.getError('required')">
@@ -112,6 +118,7 @@
     <div class="mb-2">
       <label for="phone">phone: </label>
       <input
+        #inputPhone
         formControlName="phone"
         type="tel"
         id="phone"
@@ -122,7 +129,7 @@
         class="alert alert-danger"
         *ngIf="
           registerForm.get('phone')?.errors &&
-          registerForm.get('phone')?.touched
+          (registerForm.get('phone')?.touched || inputPhone.value.length > 0)
         "
       >
         <p *ngIf="registerForm.get('phone')?.getError('required')">

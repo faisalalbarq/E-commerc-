@@ -6,6 +6,7 @@
     <div class="mb-2">
       <label for="email"> email: </label>
       <input
+        #inputEmail
         formControlName="email"
         type="email"
         id="email"
@@ -15,7 +16,7 @@
       <div
         class="alert alert-danger"
         *ngIf="
-          loginForm.get('email')?.errors && loginForm.get('email')?.touched
+          loginForm.get('email')?.errors && (loginForm.get('email')?.touched || inputEmail.value.length > 0)
         "
       >
         <p *ngIf="loginForm.get('email')?.getError('required')">
@@ -28,6 +29,7 @@
     <div class="mb-2">
       <label for="password"> password: </label>
       <input
+        #inputPassword
         formControlName="password"
         type="password"
         id="password"
@@ -38,7 +40,7 @@
         class="alert alert-danger"
         *ngIf="
           loginForm.get('password')?.errors &&
-          loginForm.get('password')?.touched
+          (loginForm.get('password')?.touched || inputPassword.value.length > 0)
         "
       >
         <p *ngIf="loginForm.get('password')?.getError('required')">

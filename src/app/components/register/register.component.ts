@@ -45,5 +45,8 @@ export class RegisterComponent {
         }
       })
     }
+    else{
+      this.registerForm.markAllAsTouched();
+    }
   }
 }

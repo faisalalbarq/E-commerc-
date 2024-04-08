@@ -11,12 +11,16 @@ import { BrandsComponent } from './components/brands/brands.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { authGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [
   {
     // حطينا الباث فاضي عشان لو اليوزر كتب لوق ان بدون مايكتب اسم النافبار
     
-    path: '', component: BlankLayoutComponent, children: [
+    path: '',
+    canActivate:[authGuard],
+    
+    component: BlankLayoutComponent, children: [
       { path: '', redirectTo: "home", pathMatch: 'full' },
       { path: "home", component: HomeComponent },
       { path: "cart", component: CartComponent },
