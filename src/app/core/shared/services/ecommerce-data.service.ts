@@ -13,7 +13,11 @@ export class EcommerceDataService {
     return this._HttpClient.get('https://ecommerce.routemisr.com/api/v1/products');
   }
 
-  getProductDetails(id:string):Observable<any>{
-    return this._HttpClient.get('https://ecommerce.routemisr.com/api/v1/products/${id}')
+  getProductDetails(id: string): Observable<any> {
+    // return this._HttpClient.get('https://ecommerce.routemisr.com/api/v1/products/${id}')
+    return this._HttpClient.get('https://ecommerce.routemisr.com/api/v1/products/${id}');
+  }
+  getAllCategories(): Observable<any> {
+    return this._HttpClient.get('https://ecommerce.routemisr.com/api/v1/categories');
   }
 }

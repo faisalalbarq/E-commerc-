@@ -19,9 +19,10 @@ import { NavAuthComponent } from './components/nav-auth/nav-auth.component';
 import { BlankLayoutComponent } from './components/blank-layout/blank-layout.component';
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http'
 
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,8 @@ import {HttpClientModule} from '@angular/common/http'
     AppRoutingModule,
     ReactiveFormsModule, // عشان اتعامل مع الفورمز بالانجولر بطريقه رياكتف 
     HttpClientModule,
+    BrowserAnimationsModule,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

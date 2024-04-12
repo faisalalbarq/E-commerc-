@@ -13,10 +13,13 @@ import { RegisterComponent } from './components/register/register.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { authGuard } from './core/shared/guards/auth.guard';
 import { DetailsComponent } from './components/details/details.component';
+ 
+
+    // حطينا الباث فاضي عشان لو اليوزر كتب لوق ان بدون مايكتب اسم النافبار
+
 
 const routes: Routes = [
   {
-    // حطينا الباث فاضي عشان لو اليوزر كتب لوق ان بدون مايكتب اسم النافبار
 
     path: '',
     canActivate: [authGuard],

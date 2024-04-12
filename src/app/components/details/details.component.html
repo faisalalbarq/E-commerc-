@@ -1,1 +1,27 @@
-<p>details works!</p>
+<section class="w-75 mx-auto">
+  <div class="row">
+    <div class="col-md-2">
+      <img
+        class="w-100"
+        [src]="productDetails.imageCover"
+        [alt]="productDetails.title"
+      />
+    </div>
+    <div class="col-md-10">
+      <h3 class="h5">{{ productDetails.title }}</h3>
+      <p>{{ productDetails.description }}</p>
+      <h5 class="h6">{{ productDetails.category.name }}</h5>
+
+      <div class="d-flex align-content-center justify-content-between">
+        <span> {{ productDetails.price }} EGP </span>
+
+        <div class="">
+          <i class="fa-solid fa-star"></i>
+          <span> {{ productDetails.ratingsAverage }} </span>
+        </div>
+      </div>
+
+      <button class="btn btn-danger w-100">Add product</button>
+    </div>
+  </div>
+</section>
