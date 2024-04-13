@@ -1,11 +1,16 @@
 <section class="w-75 mx-auto">
   <div class="row">
     <div class="col-md-2">
-      <img
-        class="w-100"
-        [src]="productDetails.imageCover"
-        [alt]="productDetails.title"
-      />
+
+      <owl-carousel-o [options]="productSlider">
+        <ng-container *ngFor="let item of productDetails.images">
+          <ng-template carouselSlide>
+            <img [src]="item" class="w-100" />
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+
+
     </div>
     <div class="col-md-10">
       <h3 class="h5">{{ productDetails.title }}</h3>

@@ -37,6 +37,32 @@ export class HomeComponent implements OnInit {
     },
     nav: true
   }
+  mainSlider: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: false,
+    dots: true,
+    navSpeed: 700,
+    navText: ['', ''],
+    autoplay: true,
+    items:1 ,
+    // responsive: {
+    //   0: {
+    //     items: 1
+    //   },
+    //   400: {
+    //     items: 2
+    //   },
+    //   740: {
+    //     items: 3
+    //   },
+    //   940: {
+    //     items: 4
+    //   }
+    // },
+    nav: true
+  }
 
 
   products: Products[] = [];

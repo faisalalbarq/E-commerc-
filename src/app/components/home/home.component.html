@@ -1,11 +1,55 @@
 <section>
+  <div class="row g-0">
+    <div class="col-md-10">
+
+      <owl-carousel-o [options]="mainSlider">
+        <ng-template carouselSlide
+          ><img
+            src="./assets/imegs/main-slider-1.jpeg"
+            class="w-100"
+            height="400"
+            alt=""
+        /></ng-template>
+        <ng-template carouselSlide
+          ><img
+            src="./assets/imegs/main-slider-2.jpeg"
+            class="w-100"
+            height="400"
+            alt=""
+        /></ng-template>
+        <ng-template carouselSlide
+          ><img
+            src="./assets/imegs/main-slider-3.jpeg"
+            class="w-100"
+            height="400"
+            alt=""
+        /></ng-template>
+
+      </owl-carousel-o>
+    </div>
+    <div class="col-md-2">
+      <img
+        src="./assets/imegs/slide-1.jpeg"
+        class="w-100"
+        height="200"
+        alt=""
+      />
+      <img
+        src="./assets/imegs/slide-2.jpeg"
+        class="w-100"
+        height="200"
+        alt=""
+      />
+    </div>
+  </div>
+</section>
+
+<section>
   <owl-carousel-o [options]="customOptions">
     <ng-container *ngFor="let item of categories">
       <ng-template carouselSlide [id]="item.id">
-        
-        <img [src]="item.image" class="w-100" height="300" [alt]="item.name">
-        <h3 class="h5"> {{item.name}} </h3> 
-
+        <img [src]="item.image" class="w-100" height="300" [alt]="item.name" />
+        <h3 class="h5">{{ item.name }}</h3>
       </ng-template>
     </ng-container>
   </owl-carousel-o>
@@ -18,11 +62,11 @@
       <div class="">
         <div class="p-3 cursor-pointer" [routerLink]="['/details', item._id]">
           <img [src]="item.imageCover" class="w-100" [alt]="item.title" />
-          <h3 class="h6">{{ item.category.name }}</h3>
-          <h4 class="h6">{{ item.title.split(" ").slice(0, 2).join(" ") }}</h4>
+          <h3 class="h6">{{ item.category.name | testPipe }}</h3>
+          <h4 class="h6">{{ item.title | splitTitle:0:2 }}</h4>
 
           <div class="d-flex justify-content-between align-items-center">
-            <span> {{ item.price }} EGP </span>
+            <span> {{ item.price | currency: 'EUR'}} </span>
             <div class="">
               <i class="fa-solid fa-star"></i>
               <span> {{ item.ratingsAverage }} </span>
@@ -34,3 +78,8 @@
     </div>
   </div>
 </section>
+
+
+
+
+

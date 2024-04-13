@@ -23,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http'
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { TestPipePipe } from './test-pipe.pipe';
+import { SplitTitlePipe } from './core/shared/pipes/split-title.pipe';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     NavBlankComponent,
     NavAuthComponent,
     BlankLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    TestPipePipe,
+    SplitTitlePipe
   ],
   imports: [
     BrowserModule,
