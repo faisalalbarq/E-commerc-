@@ -68,6 +68,9 @@ export class HomeComponent implements OnInit {
   products: Products[] = [];
   categories: any[] = [];
 
+
+  searchTerm:string = ''
+
   ngOnInit(): void {
     this._EcommerceDataService.getAllProducts().subscribe({
       next: (response) => {

@@ -1,7 +1,6 @@
 <section>
   <div class="row g-0">
     <div class="col-md-10">
-
       <owl-carousel-o [options]="mainSlider">
         <ng-template carouselSlide
           ><img
@@ -24,7 +23,6 @@
             height="400"
             alt=""
         /></ng-template>
-
       </owl-carousel-o>
     </div>
     <div class="col-md-2">
@@ -57,16 +55,27 @@
 
 <section>
   <h2>Popular Products</h2>
+
+  <input
+    type="search"
+    class="form-control w-50 mx-auto my-3"
+    placeholder="search....."
+    [(ngModel)]="searchTerm"
+  />
+
   <div class="row g-4">
-    <div class="col-md-2" *ngFor="let item of products.slice(0, 15)">
+    <div
+      class="col-md-2"
+      *ngFor="let item of products.slice(0, 15) | search : searchTerm"
+    >
       <div class="">
         <div class="p-3 cursor-pointer" [routerLink]="['/details', item._id]">
           <img [src]="item.imageCover" class="w-100" [alt]="item.title" />
           <h3 class="h6">{{ item.category.name | testPipe }}</h3>
-          <h4 class="h6">{{ item.title | splitTitle:0:2 }}</h4>
+          <h4 class="h6">{{ item.title | splitTitle : 0 : 2 }}</h4>
 
           <div class="d-flex justify-content-between align-items-center">
-            <span> {{ item.price | currency: 'EUR'}} </span>
+            <span> {{ item.price | currency : "EUR" }} </span>
             <div class="">
               <i class="fa-solid fa-star"></i>
               <span> {{ item.ratingsAverage }} </span>
@@ -78,8 +87,3 @@
     </div>
   </div>
 </section>
-
-
-
-
-

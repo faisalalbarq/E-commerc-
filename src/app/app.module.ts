@@ -18,13 +18,14 @@ import { NavBlankComponent } from './components/nav-blank/nav-blank.component';
 import { NavAuthComponent } from './components/nav-auth/nav-auth.component';
 import { BlankLayoutComponent } from './components/blank-layout/blank-layout.component';
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { TestPipePipe } from './test-pipe.pipe';
 import { SplitTitlePipe } from './core/shared/pipes/split-title.pipe';
+import { SearchPipe } from './core/shared/pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { SplitTitlePipe } from './core/shared/pipes/split-title.pipe';
     BlankLayoutComponent,
     AuthLayoutComponent,
     TestPipePipe,
-    SplitTitlePipe
+    SplitTitlePipe,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
@@ -53,7 +55,8 @@ import { SplitTitlePipe } from './core/shared/pipes/split-title.pipe';
     ReactiveFormsModule, // عشان اتعامل مع الفورمز بالانجولر بطريقه رياكتف 
     HttpClientModule,
     BrowserAnimationsModule,
-    CarouselModule
+    CarouselModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
