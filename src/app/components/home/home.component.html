@@ -71,7 +71,7 @@
       <div class="">
         <div class="p-3 cursor-pointer" [routerLink]="['/details', item._id]">
           <img [src]="item.imageCover" class="w-100" [alt]="item.title" />
-          <h3 class="h6">{{ item.category.name | testPipe }}</h3>
+          <h3 class="h6">{{ item.category.name| testPipe }}</h3>
           <h4 class="h6">{{ item.title | splitTitle : 0 : 2 }}</h4>
 
           <div class="d-flex justify-content-between align-items-center">
@@ -82,7 +82,7 @@
             </div>
           </div>
         </div>
-        <button class="btn btn-danger w-100">Add Product</button>
+        <button (click)="sendToAddToCart(item._id)" class="btn btn-danger w-100">Add Product</button>
       </div>
     </div>
   </div>

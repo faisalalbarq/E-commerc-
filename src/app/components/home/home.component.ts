@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Products } from 'src/app/core/shared/interfaces/products';
+import { CartService } from 'src/app/core/shared/services/cart.service';
 import { EcommerceDataService } from 'src/app/core/shared/services/ecommerce-data.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { EcommerceDataService } from 'src/app/core/shared/services/ecommerce-dat
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  constructor(private _EcommerceDataService: EcommerceDataService) { }
+
+  constructor(private _EcommerceDataService: EcommerceDataService, private _CartService: CartService) { }
 
 
   customOptions: OwlOptions = {
@@ -46,7 +48,7 @@ export class HomeComponent implements OnInit {
     navSpeed: 700,
     navText: ['', ''],
     autoplay: true,
-    items:1 ,
+    items: 1,
     // responsive: {
     //   0: {
     //     items: 1
@@ -69,7 +71,7 @@ export class HomeComponent implements OnInit {
   categories: any[] = [];
 
 
-  searchTerm:string = ''
+  searchTerm: string = ''
 
   ngOnInit(): void {
     this._EcommerceDataService.getAllProducts().subscribe({
@@ -91,4 +93,18 @@ export class HomeComponent implements OnInit {
       }
     })
   }
+
+  sendToAddToCart(productId: string): void {
+    this._CartService.addToCart(productId).subscribe({
+      next: (response) => {
+        console.log(response)
+      },
+      error: (err) => {
+        console.log(err)
+      }
+    })
+  }
+
+
+
 }
