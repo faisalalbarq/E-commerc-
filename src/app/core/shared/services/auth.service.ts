@@ -13,7 +13,7 @@ export class AuthService {
 
 
   logOut(): void {
-    localStorage.removeItem('Token');
+    localStorage.removeItem(`Token`);
     this._Router.navigate(['/login'])
   }
 

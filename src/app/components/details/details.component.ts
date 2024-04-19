@@ -41,16 +41,13 @@ export class DetailsComponent implements OnInit {
   }
 
 
-
-
-
   productDetails:Products = {} as Products;
 
   ngOnInit(): void {
     this._ActivatedRoute.paramMap.subscribe({
       next: (parameters) => {
         let idProduct:any = parameters.get('id');
-        console.log(idProduct);
+        // console.log(idProduct);
         this._EcommerceDataService.getProductDetails(idProduct).subscribe({
           next:(response)=>{
             this.productDetails = response.data;
