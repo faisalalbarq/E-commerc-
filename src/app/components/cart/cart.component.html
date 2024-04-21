@@ -13,14 +13,17 @@
           <h3 class="h5">{{ item.product.title }}</h3>
           <p>Price : {{ item.price }}</p>
 
-          <button class="btn p-0 m-0" (click)="removeCartItem(item.product._id)">
+          <button
+            class="btn p-0 m-0"
+            (click)="removeCartItem(item.product._id)"
+          >
             <i class="fa-regular fa-trash-can"></i> Remove
           </button>
         </div>
         <div class="">
-          <button class="btn border border-success">+</button>
+          <button (click)="changeCount(item.product._id , item.count + 1)" class="btn border border-success">+</button>
           <span> {{ item.count }} </span>
-          <button>-</button>
+          <button (click)="changeCount(item.product._id , item.count - 1)" class="btn border border-success">-</button>
         </div>
       </div>
     </div>

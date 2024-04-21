@@ -34,4 +34,15 @@ export class CartService {
     )
   }
 
+  updateCartProduct(productId: string, countProduct: number): Observable<any> {
+    return this._HttpClient.put(`https://ecommerce.routemisr.com/api/v1/cart/${productId}`,
+      {
+        count: countProduct
+      },
+      {
+        headers: this.headers
+      }
+    )
+  }
+
 }

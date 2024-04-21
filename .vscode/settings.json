@@ -3,6 +3,7 @@
         "devkit",
         "Ecommerce",
         "fontawesome",
-        "fortawesome"
+        "fortawesome",
+        "Toastr"
     ]
 }

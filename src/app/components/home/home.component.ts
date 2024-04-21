@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { ToastrService } from 'ngx-toastr';
 import { Products } from 'src/app/core/shared/interfaces/products';
 import { CartService } from 'src/app/core/shared/services/cart.service';
 import { EcommerceDataService } from 'src/app/core/shared/services/ecommerce-data.service';
@@ -11,7 +12,7 @@ import { EcommerceDataService } from 'src/app/core/shared/services/ecommerce-dat
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _EcommerceDataService: EcommerceDataService, private _CartService: CartService) { }
+  constructor(private _EcommerceDataService: EcommerceDataService, private _CartService: CartService, private _ToastrService: ToastrService) { }
 
 
   customOptions: OwlOptions = {
@@ -98,6 +99,10 @@ export class HomeComponent implements OnInit {
     this._CartService.addToCart(productId).subscribe({
       next: (response) => {
         console.log(response)
+
+        this._ToastrService.success(response.message, "title")
+        // this._ToastrService.warning
+        // this._ToastrService.error
       },
       error: (err) => {
         console.log(err)

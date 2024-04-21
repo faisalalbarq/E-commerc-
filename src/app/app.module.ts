@@ -27,6 +27,8 @@ import { TestPipePipe } from './test-pipe.pipe';
 import { SplitTitlePipe } from './core/shared/pipes/split-title.pipe';
 import { SearchPipe } from './core/shared/pipes/search.pipe';
 
+
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +58,8 @@ import { SearchPipe } from './core/shared/pipes/search.pipe';
     HttpClientModule,
     BrowserAnimationsModule,
     CarouselModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -33,4 +33,21 @@ export class CartComponent implements OnInit {
       }
     })
   }
+
+  changeCount(productId: string, count: number): void {
+    if (count > 1) {
+      this._CartService.updateCartProduct(productId, count).subscribe({
+        next: (response) => {
+          this.cartDetails = response.data;
+        },
+        error: (err) => {
+
+        }
+      })
+    }
+    else {
+      this.removeCartItem(productId);
+    }
+
+  }
 }
