@@ -1,0 +1,33 @@
+<section class="w-50 mx-auto">
+  <form action="" [formGroup]="checkoutForm" (ngSubmit)="handelFormCheckout()">
+    <div class="">
+      <label for="details"> details </label>
+      <textarea
+        id="details"
+        class="form-control"
+        formControlName="details"
+      ></textarea>
+    </div>
+
+    <div class="">
+      <label for="phone"> phone </label>
+      <input
+        id="phone"
+        type="tel"
+        class="form-control"
+        formControlName="phone"
+      />
+    </div>
+    <div class="">
+      <label for="city"> city </label>
+      <input
+        id="city"
+        type="text"
+        class="form-control"
+        formControlName="city"
+      />
+    </div>
+
+    <button class="btn btn-danger">checkout</button>
+  </form>
+</section>

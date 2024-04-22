@@ -13,9 +13,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { authGuard } from './core/shared/guards/auth.guard';
 import { DetailsComponent } from './components/details/details.component';
- 
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { AllordersComponent } from './components/allorders/allorders.component';
 
-    // حطينا الباث فاضي عشان لو اليوزر كتب لوق ان بدون مايكتب اسم النافبار
+
+// حطينا الباث فاضي عشان لو اليوزر كتب لوق ان بدون مايكتب اسم النافبار
 
 
 const routes: Routes = [
@@ -26,13 +28,15 @@ const routes: Routes = [
 
     component: BlankLayoutComponent, children: [
       { path: '', redirectTo: "home", pathMatch: 'full' },
-      { path: "home" , title: '' , component: HomeComponent },
+      { path: "home", title: '', component: HomeComponent },
       { path: "cart", component: CartComponent },
       { path: "wish list", component: WishListComponent },
       { path: "products", component: ProductsComponent },
       { path: "details/:id", component: DetailsComponent },
       { path: "categories", component: CategoriesComponent },
-      { path: "brands", component: BrandsComponent }
+      { path: "brands", component: BrandsComponent },
+      { path: 'checkout/:id', component: CheckoutComponent },
+      {path: 'allorders' , component: AllordersComponent}
     ]
   },
 

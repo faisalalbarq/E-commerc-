@@ -45,4 +45,16 @@ export class CartService {
     )
   }
 
+
+  checkoutSession(cartId: string, userData: object): Observable<any> {
+    return this._HttpClient.post(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${cartId}?url=http://localhost:4200`,
+      {
+        shippingAddress: userData
+      },
+      {
+        headers: this.headers
+      }
+    )
+  }
+
 }

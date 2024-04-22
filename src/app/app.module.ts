@@ -29,6 +29,8 @@ import { SearchPipe } from './core/shared/pipes/search.pipe';
 
 
 import { ToastrModule } from 'ngx-toastr';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { AllordersComponent } from './components/allorders/allorders.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +51,9 @@ import { ToastrModule } from 'ngx-toastr';
     AuthLayoutComponent,
     TestPipePipe,
     SplitTitlePipe,
-    SearchPipe
+    SearchPipe,
+    CheckoutComponent,
+    AllordersComponent
   ],
   imports: [
     BrowserModule,
