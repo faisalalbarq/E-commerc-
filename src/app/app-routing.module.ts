@@ -36,7 +36,7 @@ const routes: Routes = [
       { path: "categories", component: CategoriesComponent },
       { path: "brands", component: BrandsComponent },
       { path: 'checkout/:id', component: CheckoutComponent },
-      {path: 'allorders' , component: AllordersComponent}
+      { path: 'allorders', component: AllordersComponent }
     ]
   },
 

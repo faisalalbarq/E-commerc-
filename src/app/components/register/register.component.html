@@ -109,8 +109,8 @@
         <p *ngIf="registerForm.get('rePassword')?.getError('required')">
           rePassword is required
         </p>
-        <p *ngIf="registerForm.get('rePassword')?.getError('pattern')">
-          rePassword must start with upperCase then from 6 to 20
+        <p *ngIf="registerForm.get('rePassword')?.getError('misMatch')">
+          rePassword is not match the Password
         </p>
       </div>
     </div>
