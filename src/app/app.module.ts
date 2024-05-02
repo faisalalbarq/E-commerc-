@@ -19,7 +19,7 @@ import { NavAuthComponent } from './components/nav-auth/nav-auth.component';
 import { BlankLayoutComponent } from './components/blank-layout/blank-layout.component';
 import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { CarouselModule } from 'ngx-owl-carousel-o';
@@ -31,6 +31,10 @@ import { SearchPipe } from './core/shared/pipes/search.pipe';
 import { ToastrModule } from 'ngx-toastr';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { AllordersComponent } from './components/allorders/allorders.component';
+import { MyHttpInterceptor } from './my-http.interceptor';
+
+//! alt + shift + o ==> to remove the imports that not uses 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,7 +69,9 @@ import { AllordersComponent } from './components/allorders/allorders.component';
     FormsModule,
     ToastrModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS , useClass: MyHttpInterceptor , multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

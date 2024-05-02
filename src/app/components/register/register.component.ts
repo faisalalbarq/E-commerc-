@@ -24,6 +24,8 @@ export class RegisterComponent {
     phone: new FormControl('', [Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)]),
 
   }, { validators: [this.confirmPassword] } as FormControlOptions);
+     // the confirmPassword method must be return value , but the syntax for return value is long and difficult, 
+     // because i will write as FormControlOptions
 
 
   confirmPassword(group: FormGroup): void {
